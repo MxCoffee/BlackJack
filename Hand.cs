@@ -14,7 +14,16 @@ namespace BlackJack
 		abstract int CompareTo(Hand OtherHandObject) //compares two hands
 		{}
 		public bool ContainsCard(Card) //returns true if the card is in this hand, false otherwise
-		{}
+		{
+			if (hand.Contains (card)) 
+			{
+				return true;
+			} 
+			else 
+			{
+				return false;
+			}
+		}
 		public void DiscardHand() //throws away all cards in the hand, leaving an empty hand
 		{}
 		public int FindCard(Card) //searches the hand for the first occurence of the specified card and returns the index
