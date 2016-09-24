@@ -13,7 +13,7 @@ namespace BlackJack
 		{
 			hand.Add(card);
 		}
-	
+		public abstract int CompareTo (Hand OtherHandObject);
 		public bool ContainsCard(Card card) //returns true if the card is in this hand, false otherwise
 		{
 			if (hand.Contains(card)) 
@@ -62,6 +62,8 @@ namespace BlackJack
 			hand.RemoveAt(i);
 		}
 
+		public abstract int EvaluateHand ();
+
 		override public string ToString() //a description of this hand, which includes all cards in the hand
 		{
 			string fullHand;
@@ -74,3 +76,4 @@ namespace BlackJack
 
 	}
 }
+
