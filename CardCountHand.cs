@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace BlackJack
 {
@@ -7,11 +7,11 @@ namespace BlackJack
 		public CardCountHand ()
 		{
 		}
-		abstract int EvaluateHand() //evaluates the hand, returns an integer corresponding to the rating of the hand.
+		public override int EvaluateHand() //evaluates the hand, returns an integer corresponding to the rating of the hand.
 		{
 
 		}
-		abstract int CompareTo(Hand OtherHandObject) //compares two hands
+		public override int CompareTo(Hand OtherHandObject) //compares two hands
 		{
 
 
