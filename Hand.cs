@@ -1,21 +1,22 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace BlackJack
 {
 	abstract class Hand
 	{
-		private List<Hand> hand = new List<Hand>();
+		static List<Hand> hand = new List<Hand>();
 		public Hand ()
 		{
 		}
-		public void AddCard(Card) //adds a card to this hand
-		{}
-		abstract int CompareTo(Hand OtherHandObject) //compares two hands
-		{}
-		public bool ContainsCard(Card) //returns true if the card is in this hand, false otherwise
+		public void AddCard(Card card) //adds a card to this hand
 		{
-			if (hand.Contains (card)) 
+			hand.Add(card);
+		}
+	
+		public bool ContainsCard(Card card) //returns true if the card is in this hand, false otherwise
+		{
+			if (hand.Contains(card)) 
 			{
 				return true;
 			} 
@@ -25,25 +26,51 @@ namespace BlackJack
 			}
 		}
 		public void DiscardHand() //throws away all cards in the hand, leaving an empty hand
-		{}
-		public int FindCard(Card) //searches the hand for the first occurence of the specified card and returns the index
-		{}
-		public Card GetCardAtIndex(int) //obtains the card stored at the specified location in the hand
-		{}
+		{
+			hand.Clear ();
+		}
+		public int FindCard(Card card) //searches the hand for the first occurence of the specified card and returns the index
+		{
+			return hand.IndexOf (card);
+		}
+		public Card GetCardAtIndex(int i) //obtains the card stored at the specified location in the hand
+		{
+			return hand (i);
+		}
 		public int GetNumberOfCards() //returns the number of cards in the hand
 		{
 			return hand.Count;
 		}
 		public bool IsEmpty() //returns true if the hand is empty, false otherwise
-		{}
-		public Card RemoveCard(Card) //removes the first occurence of the specified card from this hand
-		{}
-		public Card RemoveCard(int) //removes the card at the specified index position from this hand
-		{}
-		abstract int EvaluateHand() //evaluates the hand, returns an integer corresponding to the rating of the hand.
-		{}
-		public string ToString() //a description of this hand, which includes all cards in the hand
-		{}
+		{
+			if (hand.Count == 0) 
+			{
+				return true;
+			} 
+			else 
+			{
+				return false;
+			}
+		}
+		public Card RemoveCard(Card card) //removes the first occurence of the specified card from this hand
+		{
+			card.getName ();
+
+		}
+		public Card RemoveCard(int i) //removes the card at the specified index position from this hand
+		{
+			hand.RemoveAt(i);
+		}
+
+		override public string ToString() //a description of this hand, which includes all cards in the hand
+		{
+			string fullHand;
+			foreach (Hand x in hand) 
+			{
+				fullHand += " " + x;
+			}
+			return fullHand;
+		}
+
 	}
 }
-
