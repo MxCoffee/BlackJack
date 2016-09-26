@@ -1,10 +1,13 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlackJack
 {
 	public class BlackJackGame
 	{
-		public static List<Deck> fullDeck = new List<Deck>();
+		public static Deck deck;
+
 		public static Card c1;
 		public static Card c2;
 		public static Card c3;
@@ -57,14 +60,17 @@ namespace BlackJack
 		public static Card c50;
 		public static Card c51;
 		public static Card c52;
-
+	
 
 		public BlackJackGame ()
 		{
 			
+
 		}
-		static BlackJackGame()
+
+		public void PlayGame()
 		{
+			deck = new Deck ();
 			c1 = new Card (Suit.CLUBS, Rank.TWO);
 			c2 = new Card (Suit.DIAMONDS, Rank.TWO);
 			c3 = new Card (Suit.HEARTS, Rank.TWO);
@@ -129,7 +135,108 @@ namespace BlackJack
 			c50 = new Card (Suit.DIAMONDS, Rank.ACE);
 			c51 = new Card (Suit.HEARTS, Rank.ACE);
 			c52 = new Card (Suit.SPADES, Rank.ACE);
-			
+
+
+
+			deck.AddCard (c1);
+			deck.AddCard (c2);
+			deck.AddCard (c3);
+			deck.AddCard (c4);
+			deck.AddCard (c5);
+			deck.AddCard (c6);
+			deck.AddCard (c7);
+			deck.AddCard (c8);
+			deck.AddCard (c9);
+			deck.AddCard (c10);
+			deck.AddCard (c11);
+			deck.AddCard (c12);
+			deck.AddCard (c13);
+			deck.AddCard (c14);
+			deck.AddCard (c15);
+			deck.AddCard (c16);
+			deck.AddCard (c17);
+			deck.AddCard (c18);
+			deck.AddCard (c19);
+			deck.AddCard (c20);
+			deck.AddCard (c21);
+			deck.AddCard (c22);
+			deck.AddCard (c23);
+			deck.AddCard (c24);
+			deck.AddCard (c25);
+			deck.AddCard (c26);
+			deck.AddCard (c27);
+			deck.AddCard (c28);
+			deck.AddCard (c29);
+			deck.AddCard (c30);
+			deck.AddCard (c31);
+			deck.AddCard (c32);
+			deck.AddCard (c33);
+			deck.AddCard (c34);
+			deck.AddCard (c35);
+			deck.AddCard (c36);
+			deck.AddCard (c37);
+			deck.AddCard (c38);
+			deck.AddCard (c39);
+			deck.AddCard (c40);
+			deck.AddCard (c41);
+			deck.AddCard (c42);
+			deck.AddCard (c43);
+			deck.AddCard (c44);
+			deck.AddCard (c45);
+			deck.AddCard (c46);
+			deck.AddCard (c47);
+			deck.AddCard (c48);
+			deck.AddCard (c49);
+			deck.AddCard (c50);
+			deck.AddCard (c51);
+			deck.AddCard (c52);
+
+			deck.Shuffle ();
+
+			BlackJackHand player = new  BlackJackHand  ();
+			BlackJackHand computer = new  BlackJackHand  ();
+
+
+			Console.WriteLine ("Welcome to Blackjack!");
+			String input;
+			int i = 0;
+
+			do{
+				
+				player.hand.Add(deck.DealOne ());
+				Console.WriteLine("You have been dealt the " + player.GetCardAtIndex(i));
+ 
+				Console.WriteLine ("Hit or Stand (H/S)?");
+				input = Console.ReadLine ();
+
+		
+				i++;
+
+			}
+			while (input.ToUpper() != "S");
+			int j = 0;
+			do{
+				
+				computer.hand.Add(deck.DealOne ());
+				Console.WriteLine("Computer has been dealt the " + computer.GetCardAtIndex(j));
+
+				j++;
+			}
+			while (computer.EvaluateHand() < 17);
+
+			if (player.EvaluateHand () > 21) {
+				Console.WriteLine ("You have exceeded 21, you lose.");
+
+			} else if (computer.EvaluateHand () > 21) {
+				Console.WriteLine ("The Computer has exceeded 21, you win.");
+			} else {
+				if (player.CompareTo (computer) == 1) {
+					Console.WriteLine ("The player wins!");
+				} else if (player.CompareTo (computer) == -1) {
+					Console.WriteLine ("The computer wins!");
+				}
+
+			}
 		}
 	}
 }
