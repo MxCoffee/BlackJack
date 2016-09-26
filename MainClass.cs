@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace BlackJack
 {
@@ -40,7 +40,11 @@ namespace BlackJack
 			Console.WriteLine ("Comparing {0} and {1}: ---> {2}", c4, c5, c4.CompareTo(c5));
 
 			// play a CardCountGame
-			CardCountGame.PlayGame();
+			CardCountGame ccg = new CardCountGame();
+			ccg.PlayGame();
+
+			BlackJackGame bjg = new BlackJackGame ();
+			bjg.PlayGame ();
 
 		}
 	}
