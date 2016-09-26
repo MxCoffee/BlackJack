@@ -4,19 +4,16 @@ using System.Linq;
 
 namespace BlackJack
 {
-	class BlackJackHand : Hand
+	public class CardCountHand : Hand
 	{
-		public BlackJackHand ()
+		public CardCountHand ()
 		{
-
 		}
-		
 		public override int EvaluateHand() //evaluates the hand, returns an integer corresponding to the rating of the hand.
 		{
 			int rating = 0;
 			foreach (Card x in hand) 
 			{
-				
 				if(x.GetRank().GetSymbol() == "2")
 				{
 					rating += 2;
@@ -53,7 +50,7 @@ namespace BlackJack
 				{
 					rating += 10;
 				}
-				if(x.GetRank().GetSymbol() == "J")
+					if(x.GetRank().GetSymbol() == "J")
 				{
 					rating += 10;
 				}
@@ -67,10 +64,10 @@ namespace BlackJack
 				}
 				if(x.GetRank().GetSymbol() == "A")
 				{
-					rating += 11;
+					rating += 1;
 				}
 			}	
-			return rating;
+					return rating;
 		}
 		public override int CompareTo(Hand OtherHandObject) //compares two hands
 		{
@@ -86,7 +83,6 @@ namespace BlackJack
 				return 0;
 			}
 		}
-
 
 	}
 }
