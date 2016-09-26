@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace BlackJack
@@ -16,10 +16,10 @@ namespace BlackJack
 
 		static Suit() //instantiate objects
 		{
-			CLUBS = new Suit ("CLUBS", "C");	
-			DIAMONDS = new Suit ("DIAMONDS", "D");
-			HEARTS = new Suit ("HEARTS", "H");
-			SPADES = new Suit ("SPADES", "S");
+			CLUBS = new Suit ("CLUBS", "\u2663");	
+			DIAMONDS = new Suit ("DIAMONDS", "\u2666");
+			HEARTS = new Suit ("HEARTS", "\u2665");
+			SPADES = new Suit ("SPADES", "\u2660");
 			
 		}
 
@@ -31,7 +31,7 @@ namespace BlackJack
 		}
 		public int CompareTo(Suit OtherSuitObject)
 		{
-			if (VALUES.IndexOf (this) < VALUES.IndexOf (OtherSuitObject))
+			if (VALUES.IndexOf (this) > VALUES.IndexOf (OtherSuitObject))
 			{
 				return 1;
 			}
@@ -44,6 +44,7 @@ namespace BlackJack
 			{
 				return 0;
 			}
+
 		}
 		public string GetSymbol()//the symbol associated with the rank
 		{
@@ -55,7 +56,7 @@ namespace BlackJack
 		}
 		override public string ToString()//the name associated with the rank
 		{
-			return name;
+			return symbol;
 		}
 	}
 }
