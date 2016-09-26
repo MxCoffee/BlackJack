@@ -1,11 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace BlackJack
 {
 	public class Card
 	{
-		public static List<Card> VALUES = new List<Card>();
 		private Suit suit;
 		private Rank rank;
 
@@ -13,21 +12,20 @@ namespace BlackJack
 		{
 			this.suit = suit;
 			this.rank = rank;
-			VALUES.Add (this);
 		}
 		public int CompareTo(Card OtherCardObject)
 		{
-			if (VALUES.IndexOf(this) > VALUES.IndexOf(OtherCardObject)) 
-			{
-				return -1;
-			} 
-			else if (VALUES.IndexOf(this) > VALUES.IndexOf(OtherCardObject)) 
-			{
-				return 1;
-			}
-			else
+			if (this.suit.CompareTo(OtherCardObject.suit) == 0 && this.rank.CompareTo(OtherCardObject.rank) == 0) 
 			{
 				return 0;
+			} 
+			else if (this.rank.CompareTo(OtherCardObject.rank) == -1)
+			{
+				return -1;
+			}
+			else 
+			{
+				return 1;
 			}
 		}
 		public Rank GetRank()
@@ -40,7 +38,7 @@ namespace BlackJack
 		}
 		override public string ToString()
 		{
-			string result = rank.GetName() + " of " + suit.GetName();
+			string result = rank.GetSymbol() + suit.GetSymbol();
 			return result;
 		}
 	}
