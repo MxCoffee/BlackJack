@@ -53,7 +53,7 @@ namespace HW2
 				i++;
 
 			}
-			while (input.ToUpper() != "S");
+			while (input.ToUpper() == "H" );
 			int j = 0;
 			do{
 				
