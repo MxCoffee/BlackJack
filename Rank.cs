@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
-namespace BlackJack
+namespace HW2
 {
 	public class Rank
 	{
@@ -73,7 +73,7 @@ namespace BlackJack
 		}
 		override public string ToString()//the name associated with the rank
 		{
-			return name;
+			return symbol;
 		}
 	}
 }
