@@ -1,6 +1,6 @@
 using System;
 
-namespace BlackJack
+namespace HW2
 {
 	public class MainClass
 	{
@@ -42,7 +42,7 @@ namespace BlackJack
 			// play a CardCountGame
 			CardCountGame ccg = new CardCountGame();
 			ccg.PlayGame();
-
+			Console.WriteLine ("--------------------------------------------------------");
 			BlackJackGame bjg = new BlackJackGame ();
 			bjg.PlayGame ();
 
