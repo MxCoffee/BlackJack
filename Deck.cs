@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HW2
 {
@@ -10,6 +11,7 @@ namespace HW2
 
 		public Deck()
 		{
+
 		}
 		public void AddCard(Card card) //adds a card to the deck
 		{
@@ -17,10 +19,9 @@ namespace HW2
 		}
 		public Card DealOne() //deal one card from the deck
 		{
-
-			Card x = this.deck [0];
-			this.removed.Add (deck[0]);
-			this.deck.RemoveAt (0);
+			Card x = deck [0];
+			removed.Add (deck[0]);
+			deck.RemoveAt (0);
 			return x;
 		}
 		public  int GetCardsRemaining() //returns the number of cards remaining in the current deck
@@ -61,11 +62,16 @@ namespace HW2
 		}
 		public void RestoreDeck() //resets the deck back to a full deck, by replacing any cards that were dealt out
 		{
-			foreach (Card x in removed) 
+			
+
+			while (removed.Count > 0)
 			{
-				deck.Add (x);
-				removed.Remove(x);
+				
+				deck.Add(removed[0]); 
+				removed.RemoveAt(0); 
 			}
+
+
 			
 		}
 	}
