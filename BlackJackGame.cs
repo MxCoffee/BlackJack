@@ -75,6 +75,8 @@ namespace HW2
 					Console.WriteLine ("The player wins!");
 				} else if (player.CompareTo (computer) == -1) {
 					Console.WriteLine ("The computer wins!");
+				} else {
+					Console.WriteLine ("Hands are equal, the dealer wins!");
 				}
 
 			}
