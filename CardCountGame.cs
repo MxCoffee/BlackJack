@@ -41,20 +41,35 @@ namespace HW2
 			}
 
 			Console.WriteLine("Hand 1: " + playerOne);
-
-			//deck.Shuffle ();
-
-			//Console.WriteLine("Hand 1: " + playerOne);
 			Console.WriteLine("Hand 2: " + playerTwo);
-
-
-
-
-
-			//Console.WriteLine("Hand 2: " + playerTwo);
 			Console.WriteLine("Hand 1 Score: " + playerOne.EvaluateHand());
 			Console.WriteLine("Hand 2 Score: " + playerTwo.EvaluateHand());
 			Console.WriteLine("Cards remaining in deck: " + deck.GetCardsRemaining());
+
+			Console.WriteLine ("---New Card Count Game---");
+			playerOne.DiscardHand ();
+			playerTwo.DiscardHand ();
+			deck.RestoreDeck ();
+
+
+			Console.WriteLine ("The deck has been restored to " + deck.GetDeckSize());
+			deck.Shuffle ();
+
+			if ((playerOne.IsEmpty ()) && (playerTwo.IsEmpty())) {
+
+				for (int i = 0; i < 8; i++) 
+				{
+					playerOne.hand.Add(deck.DealOne ());
+					playerTwo.hand.Add(deck.DealOne ());
+
+				}
+			}
+			Console.WriteLine("Hand 1: " + playerOne);
+			Console.WriteLine("Hand 2: " + playerTwo);
+			Console.WriteLine("Hand 1 Score: " + playerOne.EvaluateHand());
+			Console.WriteLine("Hand 2 Score: " + playerTwo.EvaluateHand());
+			Console.WriteLine("Cards remaining in deck: " + deck.GetCardsRemaining());
+
 		}
 
 	}
