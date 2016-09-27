@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace BlackJack
+namespace HW2
 {
 	public class Suit
 	{
