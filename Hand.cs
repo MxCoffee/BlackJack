@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 
-namespace BlackJack
+namespace HW2
 {
-	abstract class Hand
+	public abstract class Hand
 	{
-		static List<Hand> hand = new List<Hand>();
+		public List<Card> hand = new List<Card>();
 		public Hand ()
 		{
 		}
@@ -35,7 +35,7 @@ namespace BlackJack
 		}
 		public Card GetCardAtIndex(int i) //obtains the card stored at the specified location in the hand
 		{
-			return hand (i);
+			return hand[i];
 		}
 		public int GetNumberOfCards() //returns the number of cards in the hand
 		{
@@ -54,20 +54,22 @@ namespace BlackJack
 		}
 		public Card RemoveCard(Card card) //removes the first occurence of the specified card from this hand
 		{
-			card.getName ();
+			hand.Remove(card);
+			return card;
 
 		}
 		public Card RemoveCard(int i) //removes the card at the specified index position from this hand
 		{
 			hand.RemoveAt(i);
+			return hand [i];
 		}
 
 		public abstract int EvaluateHand ();
 
 		override public string ToString() //a description of this hand, which includes all cards in the hand
 		{
-			string fullHand;
-			foreach (Hand x in hand) 
+			string fullHand = ""; 
+			foreach (Card x in hand) 
 			{
 				fullHand += " " + x;
 			}
